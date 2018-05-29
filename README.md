@@ -5,13 +5,14 @@ PHP版本Rest客户端使用说明
 --------------
 
 //例如：获取文章ID为70的文章(单一请求)
+`
 $Request = new RestClient($this->url . 'v1/article/70', 'get');
 $article = $Request->doRequest();
 
 if($article['code']==200)
 {
 	$this->assign('article', $article['data']);
-}
+}`
 
 //例如：获取文章ID为100和76的文章(并发请求)
 $urls    = [$this->url . 'v1/article/100', $this->url . 'v1/article/76'];	
