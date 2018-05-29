@@ -37,7 +37,8 @@ if($article[1]['code']==200)
 
 例如：Ajax用户收藏商品
 
-```$param['uid']	   = 100;
+```
+$param['uid']	   = 100;
 $param['goods_id'] = 1000;
 
 if($param['uid'] && $param['goods_id'])
@@ -54,15 +55,16 @@ if($param['uid'] && $param['goods_id'])
 }else{
 	$data = ['status'=>0,'msg'=>'参数错误'];
 }
-return json($data);```
-
+return json($data);
+```
 
 3.PUT 请求方法的使用
 --------------------
 
 例如：Ajax用户修改密码
 
-```$param['uid']    = session('uid');
+```
+$param['uid']    = session('uid');
 $param['oldpwd'] = $_POST['oldpwd'];
 $param['newpwd'] = $_POST['newpwd'];
 $param['revpwd'] = $_POST['revpwd'];
@@ -81,14 +83,15 @@ if($param['uid'])
 		$data = ['status'=>0, 'msg'=>$result['message']];
 	}
 	return json($data);
-}```
+}
+```
 
 4.DELETE AJAX请求方法的使用
 --------------------------
 
 例如：删除文章操作
-```$id = $_POST['id'];
-	
+```
+$id = $_POST['id'];	
 if($id)
 {
 	$rest 	= new RestClient($this->url . 'v1/article/'.$aid, 'delete');
@@ -104,17 +107,18 @@ if($id)
 	$data = ['status'=>0,'msg'=>'参数错误'];
 }
 
-return json($data);```
-
+return json($data);
+```
 
 接口返回JSON格式
+```
 [{
 	
 	"code": 200,
 	"message": "操作成功",
 	"data": ""
 }]
-
+```
 code 	: 接口状态码
 message ：接口提示信息
 data	：接口返回数据
