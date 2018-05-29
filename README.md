@@ -4,7 +4,7 @@ PHP版本Rest客户端使用说明
 1.GET 请求得使用
 --------------
 
-//例如：获取文章ID为70的文章(单一请求)
+例如：获取文章ID为70的文章(单一请求)
 ```
 $Request = new RestClient($this->url . 'v1/article/70', 'get');
 $article = $Request->doRequest();
@@ -14,7 +14,8 @@ if($article['code']==200)
 	$this->assign('article', $article['data']);
 }
 ```
-//例如：获取文章ID为100和76的文章(并发请求)
+例如：获取文章ID为100和76的文章(并发请求)
+```
 $urls    = [$this->url . 'v1/article/100', $this->url . 'v1/article/76'];	
 $Request = new RestClient($urls, 'get');
 $article = $Request->doRequest();
@@ -26,12 +27,13 @@ if($article[0]['code']==200)
 if($article[1]['code']==200)
 {
 	$this->assign('hot_articel', $article[1]['data']['content']);
-}
+}```
 
 2.POST 请求方法的使用
 ---------------------
 
-//例如：Ajax用户收藏商品
+例如：Ajax用户收藏商品
+```
 $param['uid']	   = 100;
 $param['goods_id'] = 1000;
 
@@ -49,13 +51,14 @@ if($param['uid'] && $param['goods_id'])
 }else{
 	$data = ['status'=>0,'msg'=>'参数错误'];
 }
-
 return json($data);
+```
 
 3.PUT 请求方法的使用
 --------------------
 
-//例如：Ajax用户修改密码
+例如：Ajax用户修改密码
+```
 $param['uid']    = session('uid');
 $param['oldpwd'] = $_POST['oldpwd'];
 $param['newpwd'] = $_POST['newpwd'];
@@ -74,9 +77,9 @@ if($param['uid'])
 	}else{
 		$data = ['status'=>0, 'msg'=>$result['message']];
 	}
-	
 	return json($data);
 }
+```
 
 4.DELETE AJAX请求方法的使用
 --------------------------
