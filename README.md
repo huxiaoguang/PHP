@@ -14,7 +14,9 @@ if($article['code']==200)
 	$this->assign('article', $article['data']);
 }
 ```
+
 例如：获取文章ID为100和76的文章(并发请求)
+
 ```
 $urls    = [$this->url . 'v1/article/100', $this->url . 'v1/article/76'];	
 $Request = new RestClient($urls, 'get');
@@ -27,7 +29,8 @@ if($article[0]['code']==200)
 if($article[1]['code']==200)
 {
 	$this->assign('hot_articel', $article[1]['data']['content']);
-}```
+}
+```
 
 2.POST 请求方法的使用
 ---------------------
