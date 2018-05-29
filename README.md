@@ -2,6 +2,7 @@ PHP版本Rest客户端使用说明
 ======================
 
 1.GET 请求得使用
+--------------
 
 //例如：获取文章ID为70的文章(单一请求)
 $Request = new RestClient($this->url . 'v1/article/70', 'get');
@@ -27,6 +28,7 @@ if($article[1]['code']==200)
 }
 
 2.POST 请求方法的使用
+---------------------
 
 //例如：Ajax用户收藏商品
 $param['uid']	   = 100;
@@ -50,6 +52,7 @@ if($param['uid'] && $param['goods_id'])
 return json($data);
 
 3.PUT 请求方法的使用
+--------------------
 
 //例如：Ajax用户修改密码
 $param['uid']    = session('uid');
@@ -75,6 +78,7 @@ if($param['uid'])
 }
 
 4.DELETE AJAX请求方法的使用
+--------------------------
 
 //例如：删除文章操作
 $id = $_POST['id'];
